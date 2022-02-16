@@ -13,6 +13,7 @@ input {
 
 .card {
   border: 2px solid #fff;
+  width: 50%;
   margin: 0 auto;
   margin-top: 100px;
   padding: 20px;
@@ -24,15 +25,25 @@ ul {
   margin-bottom: 15px;
 }
 
-input {
+.form-text {
   border: 1px solid #fff;
   border-radius: 4px;
-  padding: 5px;
+  padding: 5px 10px;
   margin-bottom: 15px;
+  color: #fff;
+}
+
+.form-text:focus {
+  outline-color: rgb(180, 233, 170);
 }
 
 .fas {
   color: #fff;
+}
+
+.fas:hover {
+  color: rgb(81, 226, 137);
+  cursor: default;
 }
 
 .row {
