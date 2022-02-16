@@ -1,0 +1,63 @@
+body,
+.card-body,
+.card,
+input {
+  background-image: url(../img/leaves.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: "Barlow Condensed", sans-serif;
+  color: #fff;
+}
+
+.card {
+  border: 2px solid #fff;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+input {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.fas {
+  color: #fff;
+}
+
+.row {
+  margin: 0;
+}
+
+.daily-forecast {
+  border: 1px solid #fff;
+  margin-right: 15px;
+  padding: 25px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 576px) {
+  body {
+    padding: 25px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .daily-forecast {
+    margin-bottom: 20px;
+  }
+}
