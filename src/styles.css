@@ -17,6 +17,7 @@ body,
   width: 50%;
   margin-top: 100px;
   padding: 20px;
+  box-shadow: 5px 5px 5px rgb(235, 227, 227);
 }
 
 ul {
@@ -54,7 +55,16 @@ ul {
   text-align: center;
 }
 
-@media only screen and (max-width: 576px) {
+footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+footer a {
+  color: rgb(180, 233, 170);
+}
+
+@media only screen and (max-width: 768px) {
   body {
     padding: 25px;
   }

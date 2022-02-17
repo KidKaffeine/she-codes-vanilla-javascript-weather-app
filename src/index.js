@@ -58,25 +58,61 @@ function displayWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  getForecast(response.data.coord);
+}
+
+function removeTimestamp(timestamp) {
+  let now = new Date(timestamp * 1000);
+  let day = now.getDay();
+  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
+  return days[day];
+}
+
+function getForecast(coordinates) {
+  let apiKey = `9b761912c6d0907fc2545d504bce9a80`;
+  let apiEndPoint = `api.openweathermap.org`;
+  let apiUrl = `https://${apiEndPoint}/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+  let forecast = response.data.daily;
+  let showForecast = document.querySelector(`#weekly-forecast`);
+  let showInHTML = `<div class="row m-0">`;
+  forecast.forEach(function (dailyForecast, result) {
+    if (result < 5) {
+      showInHTML += `<div class="col-md-2 daily-forecast">
+              <div>${removeTimestamp(dailyForecast.dt)}</div>
+              <div>${Math.round(dailyForecast.temp.max)}° </div>
+              <div>${Math.round(dailyForecast.temp.min)}°</div>
+       <img src="http://openweathermap.org/img/wn/${
+         dailyForecast.weather[0].icon
+       }@2x.png" alt="weather-icon" width="30"/>
+              </div>`;
+    }
+  });
+  showInHTML += `</div>`;
+  showForecast.innerHTML = showInHTML;
 }
 
 function getCoordinates(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(apiCoordinates);
+  navigator.geolocation.getCurrentPosition(geoLocation);
 }
 
-function apiCoordinates(position) {
+function geoLocation(position) {
   let apiKey = `9b761912c6d0907fc2545d504bce9a80`;
   let apiEndPoint = `api.openweathermap.org`;
   apiUrl = `https://${apiEndPoint}/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 
-let coordinates = document.querySelector(`#location-button`);
-coordinates.addEventListener(`click`, getCoordinates);
-
 let searchCity = document.querySelector(`#form, #search-button`);
 searchCity.addEventListener(`submit`, search);
+
+let allowCoordinates = document.querySelector(`#location-button`);
+allowCoordinates.addEventListener(`click`, getCoordinates);
 
 formatDate();
 getCity(`Berlin`);
