@@ -1,7 +1,8 @@
 body,
 .card-body,
 .card,
-input {
+.form-text,
+.form-text::placeholder {
   background-image: url(../img/leaves.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,5 +66,9 @@ ul {
 
   .daily-forecast {
     margin-bottom: 20px;
+  }
+
+  .icon {
+    display: none;
   }
 }
