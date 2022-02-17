@@ -20,34 +20,45 @@
       src="https://kit.fontawesome.com/f39f53956b.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Javascript Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="card">
+      <div class="card mx-auto">
         <div class="card-body">
-          <h1 class="city text-capitalize" id="city">berlin</h1>
-          <h2 class="temperature" id="temperature-selector">9°C</h2>
-          <h3 class="description text-capitalize" id="description-selector">
-            cloudy
-          </h3>
-          <ul>
-            <li>Real Feel: 6° C</li>
-            <li>Wind: 7 km/h</li>
-            <li>Humidity: 80%</li>
-            <li>Last Updated: 14:53h</li>
-          </ul>
-          <form class="form-group" id="form">
-            <input type="text" value="Insert your city" class="form-text" />
-            <button type="submit" class="btn" id="search-button">
-              <i class="fas fa-search-location"></i>
-            </button>
-            <button type="submit" class="btn" id="location-button">
-              <i class="fas fa-location-arrow"></i>
-            </button>
-          </form>
           <div class="row">
+            <div class="col-sm-9">
+              <h1 class="city text-capitalize" id="heading"></h1>
+              <div class="d-inline-block">
+                <h2 class="temperature" id="temperature"></h2>
+                <h3 class="description text-capitalize" id="description"></h3>
+              </div>
+              <ul>
+                <li id="real-feel"></li>
+                <li id="wind-speed"></li>
+                <li id="humidity"></li>
+              </ul>
+              <small id="date"></small> <small id="date"></small>
+              <form class="form-group" id="form">
+                <input
+                  type="text"
+                  value="Insert your city"
+                  class="form-text"
+                  id="search-input"
+                />
+                <button type="submit" class="btn" id="search-button">
+                  <i class="fas fa-search-location"></i>
+                </button>
+                <button type="submit" class="btn" id="location-button">
+                  <i class="fas fa-location-arrow"></i>
+                </button>
+              </form>
+            </div>
+            <div class="col-sm-3">Test</div>
+          </div>
+          <div class="row m-0">
             <div class="col-sm-2 daily-forecast">
               <div class="day">Thu</div>
               <div class="max-temp">9°C</div>
@@ -83,4 +94,5 @@
       </div>
     </div>
   </body>
+  <script src="src/index.js"></script>
 </html>
