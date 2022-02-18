@@ -38,7 +38,6 @@ function getCity(city) {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
   let cityName = document.querySelector(`#heading`);
   let currentTemperature = document.querySelector(`#temperature`);
   let overview = document.querySelector(`#description`);
@@ -76,7 +75,6 @@ function getForecast(coordinates) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecast = response.data.daily;
   let showForecast = document.querySelector(`#weekly-forecast`);
   let showInHTML = `<div class="row m-0">`;
