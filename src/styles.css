@@ -49,7 +49,7 @@ ul {
 .daily-forecast {
   border: 1px solid #fff;
   margin-right: 15px;
-  padding: 25px;
+  padding: 20px 15px;
   border-radius: 4px;
   text-align: center;
 }
@@ -63,7 +63,7 @@ footer a {
   color: rgb(180, 233, 170);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
   body {
     padding: 25px;
   }

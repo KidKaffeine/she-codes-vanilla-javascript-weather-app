@@ -82,8 +82,8 @@ function displayForecast(response) {
     if (result < 5) {
       showInHTML += `<div class="col-md-2 daily-forecast">
               <div>${removeTimestamp(dailyForecast.dt)}</div>
-              <div>${Math.round(dailyForecast.temp.max)}° </div>
-              <div>${Math.round(dailyForecast.temp.min)}°</div>
+              <div>Max: ${Math.round(dailyForecast.temp.max)}° </div>
+              <div>Min: ${Math.round(dailyForecast.temp.min)}°</div>
        <img src="http://openweathermap.org/img/wn/${
          dailyForecast.weather[0].icon
        }@2x.png" alt="weather-icon" width="30"/>
